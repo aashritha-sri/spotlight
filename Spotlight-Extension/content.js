@@ -2,13 +2,11 @@ console.log("Content started")
 chrome.runtime.onMessage.addListener(gotMessage);
 
 function gotMessage(message) {
-    // if (message.clicked === "1") {
         let paragraphs = document.getElementsByTagName('p')
         for (elt of paragraphs) {
-            console.log(elt.innerText)
+            console.log(elt)
+            elt.innerHTML = elt.innerHTML.split("the").join('<span style="background-color: #fff799;">' + "the" + '</span>');
         }
-    //     console.log(message.clicked)
-    // }
-    // console.log("This is clearly not working ")
-    // alert(message)
+
 }
+// document.body.innerHTML = document.body.innerHTML.split(value).join('<span style="background-color: #fff799;">' + value + '</span>');
